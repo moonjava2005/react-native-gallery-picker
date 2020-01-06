@@ -19,6 +19,8 @@
 		90E9222E23C2EFFE009BF78F /* RNSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9222D23C2EFFE009BF78F /* RNSlomoIconView.m */; };
 		90E9223123C2F063009BF78F /* RNVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9223023C2F063009BF78F /* RNVideoIconView.m */; };
 		90E9223423C2F0CF009BF78F /* RNVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9223323C2F0CF009BF78F /* RNVideoIndicatorView.m */; };
+		90E922B023C3717F009BF78F /* RNImagePicker.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90E9223823C2F1E7009BF78F /* RNImagePicker.strings */; };
+		90E922B123C3717F009BF78F /* RNImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E9220D23C2E815009BF78F /* RNImagePicker.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,6 +162,7 @@
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
 				58B511D91A9E6C8500147676 /* CopyFiles */,
+				90E922AF23C37155009BF78F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +206,18 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		90E922AF23C37155009BF78F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90E922B023C3717F009BF78F /* RNImagePicker.strings in Resources */,
+				90E922B123C3717F009BF78F /* RNImagePicker.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
