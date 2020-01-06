@@ -10,17 +10,16 @@
 		90E921A623C0556D009BF78F /* RNCamerarollPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A523C05566009BF78F /* RNCamerarollPicker.m */; };
 		90E921A723C0556D009BF78F /* Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A123C05566009BF78F /* Compression.m */; };
 		90E921A823C0556D009BF78F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A023C05566009BF78F /* UIImage+Resize.m */; };
+		90E9221C23C2EA13009BF78F /* RNAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9221B23C2EA13009BF78F /* RNAlbumCell.m */; };
+		90E9221F23C2EB54009BF78F /* RNAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9221E23C2EB54009BF78F /* RNAlbumsViewController.m */; };
+		90E9222223C2EC4A009BF78F /* RNAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9222123C2EC4A009BF78F /* RNAssetCell.m */; };
+		90E9222523C2ED18009BF78F /* RNAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9222423C2ED18009BF78F /* RNAssetsViewController.m */; };
+		90E9222823C2EDCC009BF78F /* RNCheckmarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9222723C2EDCC009BF78F /* RNCheckmarkView.m */; };
+		90E9222B23C2EF8F009BF78F /* RNImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9222A23C2EF8F009BF78F /* RNImagePickerController.m */; };
+		90E9222E23C2EFFE009BF78F /* RNSlomoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9222D23C2EFFE009BF78F /* RNSlomoIconView.m */; };
+		90E9223123C2F063009BF78F /* RNVideoIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9223023C2F063009BF78F /* RNVideoIconView.m */; };
+		90E9223423C2F0CF009BF78F /* RNVideoIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9223323C2F0CF009BF78F /* RNVideoIndicatorView.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		90E921CA23C08AF7009BF78F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 90E921C523C08AF6009BF78F /* QBImagePicker.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AAA8FE031ACDA079002A9710;
-			remoteInfo = QBImagePicker;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
@@ -42,7 +41,29 @@
 		90E921A323C05566009BF78F /* UIImage+Resize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		90E921A423C05566009BF78F /* Compression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Compression.h; sourceTree = "<group>"; };
 		90E921A523C05566009BF78F /* RNCamerarollPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCamerarollPicker.m; sourceTree = "<group>"; };
-		90E921C523C08AF6009BF78F /* QBImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QBImagePicker.xcodeproj; path = QBImagePicker/QBImagePicker.xcodeproj; sourceTree = "<group>"; };
+		90E9220D23C2E815009BF78F /* RNImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RNImagePicker.storyboard; sourceTree = "<group>"; };
+		90E9221A23C2E9E3009BF78F /* RNAlbumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAlbumCell.h; sourceTree = "<group>"; };
+		90E9221B23C2EA13009BF78F /* RNAlbumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAlbumCell.m; sourceTree = "<group>"; };
+		90E9221D23C2EA84009BF78F /* RNAlbumsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAlbumsViewController.h; sourceTree = "<group>"; };
+		90E9221E23C2EB54009BF78F /* RNAlbumsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAlbumsViewController.m; sourceTree = "<group>"; };
+		90E9222023C2EC25009BF78F /* RNAssetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAssetCell.h; sourceTree = "<group>"; };
+		90E9222123C2EC4A009BF78F /* RNAssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAssetCell.m; sourceTree = "<group>"; };
+		90E9222323C2EC9E009BF78F /* RNAssetsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAssetsViewController.h; sourceTree = "<group>"; };
+		90E9222423C2ED18009BF78F /* RNAssetsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAssetsViewController.m; sourceTree = "<group>"; };
+		90E9222623C2ED8B009BF78F /* RNCheckmarkView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCheckmarkView.h; sourceTree = "<group>"; };
+		90E9222723C2EDCC009BF78F /* RNCheckmarkView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCheckmarkView.m; sourceTree = "<group>"; };
+		90E9222923C2EF51009BF78F /* RNImagePickerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNImagePickerController.h; sourceTree = "<group>"; };
+		90E9222A23C2EF8F009BF78F /* RNImagePickerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNImagePickerController.m; sourceTree = "<group>"; };
+		90E9222C23C2EFD2009BF78F /* RNSlomoIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNSlomoIconView.h; sourceTree = "<group>"; };
+		90E9222D23C2EFFE009BF78F /* RNSlomoIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSlomoIconView.m; sourceTree = "<group>"; };
+		90E9222F23C2F042009BF78F /* RNVideoIconView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNVideoIconView.h; sourceTree = "<group>"; };
+		90E9223023C2F063009BF78F /* RNVideoIconView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNVideoIconView.m; sourceTree = "<group>"; };
+		90E9223223C2F0A2009BF78F /* RNVideoIndicatorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNVideoIndicatorView.h; sourceTree = "<group>"; };
+		90E9223323C2F0CF009BF78F /* RNVideoIndicatorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNVideoIndicatorView.m; sourceTree = "<group>"; };
+		90E9223723C2F1E7009BF78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RNImagePicker.strings; sourceTree = "<group>"; };
+		90E9223923C2F1EA009BF78F /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/RNImagePicker.strings; sourceTree = "<group>"; };
+		90E9223A23C2F1EB009BF78F /* km-KH */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "km-KH"; path = "km-KH.lproj/RNImagePicker.strings"; sourceTree = "<group>"; };
+		90E9223B23C2F1EC009BF78F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/RNImagePicker.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +88,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				90E9223523C2F1A8009BF78F /* Resources */,
+				90E921DC23C2E77A009BF78F /* Picker */,
 				90E9219623C05534009BF78F /* Libraries */,
 				90E921A423C05566009BF78F /* Compression.h */,
 				90E921A123C05566009BF78F /* Compression.m */,
@@ -82,7 +105,6 @@
 		90E9219623C05534009BF78F /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				90E921C523C08AF6009BF78F /* QBImagePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -94,12 +116,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		90E921C623C08AF6009BF78F /* Products */ = {
+		90E921DC23C2E77A009BF78F /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				90E921CB23C08AF7009BF78F /* QBImagePicker.framework */,
+				90E9220D23C2E815009BF78F /* RNImagePicker.storyboard */,
+				90E9221A23C2E9E3009BF78F /* RNAlbumCell.h */,
+				90E9221B23C2EA13009BF78F /* RNAlbumCell.m */,
+				90E9221D23C2EA84009BF78F /* RNAlbumsViewController.h */,
+				90E9221E23C2EB54009BF78F /* RNAlbumsViewController.m */,
+				90E9222023C2EC25009BF78F /* RNAssetCell.h */,
+				90E9222123C2EC4A009BF78F /* RNAssetCell.m */,
+				90E9222323C2EC9E009BF78F /* RNAssetsViewController.h */,
+				90E9222423C2ED18009BF78F /* RNAssetsViewController.m */,
+				90E9222623C2ED8B009BF78F /* RNCheckmarkView.h */,
+				90E9222723C2EDCC009BF78F /* RNCheckmarkView.m */,
+				90E9222923C2EF51009BF78F /* RNImagePickerController.h */,
+				90E9222A23C2EF8F009BF78F /* RNImagePickerController.m */,
+				90E9222C23C2EFD2009BF78F /* RNSlomoIconView.h */,
+				90E9222D23C2EFFE009BF78F /* RNSlomoIconView.m */,
+				90E9222F23C2F042009BF78F /* RNVideoIconView.h */,
+				90E9223023C2F063009BF78F /* RNVideoIconView.m */,
+				90E9223223C2F0A2009BF78F /* RNVideoIndicatorView.h */,
+				90E9223323C2F0CF009BF78F /* RNVideoIndicatorView.m */,
 			);
-			name = Products;
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		90E9223523C2F1A8009BF78F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90E9223823C2F1E7009BF78F /* RNImagePicker.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,16 +191,12 @@
 			knownRegions = (
 				English,
 				en,
+				vi,
+				"km-KH",
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 90E921C623C08AF6009BF78F /* Products */;
-					ProjectRef = 90E921C523C08AF6009BF78F /* QBImagePicker.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				58B511DA1A9E6C8500147676 /* RNCamerarollPicker */,
@@ -160,28 +204,41 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		90E921CB23C08AF7009BF78F /* QBImagePicker.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = QBImagePicker.framework;
-			remoteRef = 90E921CA23C08AF7009BF78F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXSourcesBuildPhase section */
 		58B511D71A9E6C8500147676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				90E921A723C0556D009BF78F /* Compression.m in Sources */,
+				90E9222B23C2EF8F009BF78F /* RNImagePickerController.m in Sources */,
+				90E9222823C2EDCC009BF78F /* RNCheckmarkView.m in Sources */,
+				90E9222E23C2EFFE009BF78F /* RNSlomoIconView.m in Sources */,
+				90E9222523C2ED18009BF78F /* RNAssetsViewController.m in Sources */,
+				90E9223123C2F063009BF78F /* RNVideoIconView.m in Sources */,
+				90E9221F23C2EB54009BF78F /* RNAlbumsViewController.m in Sources */,
+				90E9223423C2F0CF009BF78F /* RNVideoIndicatorView.m in Sources */,
+				90E9221C23C2EA13009BF78F /* RNAlbumCell.m in Sources */,
+				90E9222223C2EC4A009BF78F /* RNAssetCell.m in Sources */,
 				90E921A823C0556D009BF78F /* UIImage+Resize.m in Sources */,
 				90E921A623C0556D009BF78F /* RNCamerarollPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		90E9223823C2F1E7009BF78F /* RNImagePicker.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90E9223723C2F1E7009BF78F /* en */,
+				90E9223923C2F1EA009BF78F /* English */,
+				90E9223A23C2F1EB009BF78F /* km-KH */,
+				90E9223B23C2F1EC009BF78F /* vi */,
+			);
+			name = RNImagePicker.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		58B511ED1A9E6C8500147676 /* Debug */ = {

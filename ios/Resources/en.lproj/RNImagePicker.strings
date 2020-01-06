@@ -1,0 +1,20 @@
+/* 
+  RNImagePicker.strings
+  RNCamerarollPicker
+
+  Created by Khoa Luu on 1/6/20.
+  Copyright © 2020 Facebook. All rights reserved.
+*/
+"albums.title" = "Photos";
+
+"assets.footer.photo" = "%ld Photo";
+"assets.footer.photos" = "%ld Photos";
+"assets.footer.video" = "%ld Video";
+"assets.footer.videos" = "%ld Videos";
+"assets.footer.photo-and-video" = "%ld Photo, %ld Video";
+"assets.footer.photos-and-video" = "%ld Photos, %ld Video";
+"assets.footer.photo-and-videos" = "%ld Photo, %ld Videos";
+"assets.footer.photos-and-videos" = "%ld Photos, %ld Videos";
+
+"assets.toolbar.item-selected" = "%ld Item Selected";
+"assets.toolbar.items-selected" = "%ld Items Selected";
