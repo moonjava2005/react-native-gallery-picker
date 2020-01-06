@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90E921A623C0556D009BF78F /* RNCamerarollPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A523C05566009BF78F /* RNCamerarollPicker.m */; };
+		90E921A623C0556D009BF78F /* RNGalleryPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A523C05566009BF78F /* RNGalleryPicker.m */; };
 		90E921A723C0556D009BF78F /* Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A123C05566009BF78F /* Compression.m */; };
 		90E921A823C0556D009BF78F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921A023C05566009BF78F /* UIImage+Resize.m */; };
 		90E9221C23C2EA13009BF78F /* RNAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E9221B23C2EA13009BF78F /* RNAlbumCell.m */; };
@@ -34,13 +34,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libRNCamerarollPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCamerarollPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		134814201AA4EA6300B7C361 /* libRNGalleryPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNGalleryPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E921A023C05566009BF78F /* UIImage+Resize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		90E921A123C05566009BF78F /* Compression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Compression.m; sourceTree = "<group>"; };
-		90E921A223C05566009BF78F /* RNCamerarollPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCamerarollPicker.h; sourceTree = "<group>"; };
+		90E921A223C05566009BF78F /* RNGalleryPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNGalleryPicker.h; sourceTree = "<group>"; };
 		90E921A323C05566009BF78F /* UIImage+Resize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		90E921A423C05566009BF78F /* Compression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Compression.h; sourceTree = "<group>"; };
-		90E921A523C05566009BF78F /* RNCamerarollPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCamerarollPicker.m; sourceTree = "<group>"; };
+		90E921A523C05566009BF78F /* RNGalleryPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNGalleryPicker.m; sourceTree = "<group>"; };
 		90E9220D23C2E815009BF78F /* RNImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RNImagePicker.storyboard; sourceTree = "<group>"; };
 		90E9221A23C2E9E3009BF78F /* RNAlbumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAlbumCell.h; sourceTree = "<group>"; };
 		90E9221B23C2EA13009BF78F /* RNAlbumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAlbumCell.m; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libRNCamerarollPicker.a */,
+				134814201AA4EA6300B7C361 /* libRNGalleryPicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,8 +93,8 @@
 				90E9219623C05534009BF78F /* Libraries */,
 				90E921A423C05566009BF78F /* Compression.h */,
 				90E921A123C05566009BF78F /* Compression.m */,
-				90E921A223C05566009BF78F /* RNCamerarollPicker.h */,
-				90E921A523C05566009BF78F /* RNCamerarollPicker.m */,
+				90E921A223C05566009BF78F /* RNGalleryPicker.h */,
+				90E921A523C05566009BF78F /* RNGalleryPicker.m */,
 				90E921A323C05566009BF78F /* UIImage+Resize.h */,
 				90E921A023C05566009BF78F /* UIImage+Resize.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -153,9 +153,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* RNCamerarollPicker */ = {
+		58B511DA1A9E6C8500147676 /* RNGalleryPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNCamerarollPicker" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNGalleryPicker" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -165,9 +165,9 @@
 			);
 			dependencies = (
 			);
-			name = RNCamerarollPicker;
+			name = RNGalleryPicker;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libRNCamerarollPicker.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libRNGalleryPicker.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +184,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNCamerarollPicker" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNGalleryPicker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -199,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* RNCamerarollPicker */,
+				58B511DA1A9E6C8500147676 /* RNGalleryPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -220,7 +220,7 @@
 				90E9221C23C2EA13009BF78F /* RNAlbumCell.m in Sources */,
 				90E9222223C2EC4A009BF78F /* RNAssetCell.m in Sources */,
 				90E921A823C0556D009BF78F /* UIImage+Resize.m in Sources */,
-				90E921A623C0556D009BF78F /* RNCamerarollPicker.m in Sources */,
+				90E921A623C0556D009BF78F /* RNGalleryPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +331,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RNCamerarollPicker;
+				PRODUCT_NAME = RNGalleryPicker;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -345,7 +345,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RNCamerarollPicker;
+				PRODUCT_NAME = RNGalleryPicker;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -353,7 +353,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNCamerarollPicker" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNGalleryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -362,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNCamerarollPicker" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNGalleryPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

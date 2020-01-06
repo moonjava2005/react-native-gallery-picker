@@ -1,6 +1,6 @@
 {
   "name": "react-native-gallery-picker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Support select image, video from gallery with iCloud",
   "main": "index.js",
   "scripts": {
@@ -25,10 +25,10 @@
   "peerDependencies": {
     "react-native": ">=0.50.0"
   },
-  "homepage": "https://github.com/moonjava2005/react-native-cameraroll-picker",
-  "readme": "https://github.com/moonjava2005/react-native-cameraroll-picker#readme",
+  "homepage": "https://github.com/moonjava2005/react-native-gallery-picker",
+  "readme": "https://github.com/moonjava2005/react-native-gallery-picker#readme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/moonjava2005/react-native-cameraroll-picker.git"
+    "url": "git://github.com/moonjava2005/react-native-gallery-picker.git"
   }
 }

@@ -23,7 +23,7 @@
 RCT_EXTERN NSString *const RNTImagePickerWillShow;
 RCT_EXTERN NSString *const RNTImagePickerWillHide;
 
-@interface RNCamerarollPicker : RCTEventEmitter<
+@interface RNGalleryPicker : RCTEventEmitter<
 PHPhotoLibraryChangeObserver,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
