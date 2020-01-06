@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "git://github.com/moonjava2005/react-native-cameraroll-picker.git", :tag => s.version }
   s.source_files  = "ios/**/*.{h,m}"
+  s.resource_bundles = { "RNImagePicker" => "ios/**/*.{lproj,storyboard}" }
   s.requires_arc = true
   s.dependency 'React'
 
