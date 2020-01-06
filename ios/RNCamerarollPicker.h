@@ -18,6 +18,7 @@
 #import "UIImage+Resize.h"
 #import "Compression.h"
 #import <math.h>
+#import <RSKImageCropper/RSKImageCropper.h>
 
 RCT_EXTERN NSString *const RNTImagePickerWillShow;
 RCT_EXTERN NSString *const RNTImagePickerWillHide;
@@ -27,7 +28,7 @@ PHPhotoLibraryChangeObserver,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 RCTBridgeModule,
-QBImagePickerControllerDelegate,
+RNImagePickerControllerDelegate,
 RSKImageCropViewControllerDelegate,
 RSKImageCropViewControllerDataSource>
 

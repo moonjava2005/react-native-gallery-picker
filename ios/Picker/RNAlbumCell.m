@@ -1,7 +1,7 @@
 //
 //
 
-#import "MJAlbumCell.h"
+#import "RNAlbumCell.h"
 
 @implementation RNAlbumCell
 

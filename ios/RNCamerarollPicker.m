@@ -442,7 +442,7 @@ RCT_EXPORT_METHOD(exportVideo:(NSDictionary *)options
     AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:preset];
     exportSession.shouldOptimizeForNetworkUse = YES;
     exportSession.outputFileType = AVFileTypeMPEG4;
-    NSString *tempVideoFilePath =[RNTImagePicker getTempFilePath:videoId prefix:@"video-exported" extension:@"mp4"];
+    NSString *tempVideoFilePath =[RNCamerarollPicker getTempFilePath:videoId prefix:@"video-exported" extension:@"mp4"];
     NSURL *outputURL = [NSURL fileURLWithPath:tempVideoFilePath];
     exportSession.outputURL = outputURL;
     NSTimer *currentTimer=[timerDic objectForKey:videoId];
@@ -711,8 +711,8 @@ RCT_EXPORT_METHOD(openPicker:(NSDictionary *)options
             {
                 currentSelections=[self.options objectForKey:@"currentSelections"];
             }
-            QBImagePickerController *imagePickerController =
-            [[QBImagePickerController alloc] initWithSelections:currentSelections];
+            RNImagePickerController *imagePickerController =
+            [[RNImagePickerController alloc] initWithSelections:currentSelections];
             imagePickerController.delegate = self;
             imagePickerController.allowsMultipleSelection = [[self.options objectForKey:@"multiple"] boolValue];
             imagePickerController.minimumNumberOfSelection = abs([[self.options objectForKey:@"minFiles"] intValue]);
@@ -761,16 +761,16 @@ RCT_EXPORT_METHOD(openPicker:(NSDictionary *)options
             }
             
             if ([[self.options objectForKey:@"cropping"] boolValue]) {
-                imagePickerController.mediaType = QBImagePickerMediaTypeImage;
+                imagePickerController.mediaType = RNImagePickerMediaTypeImage;
             } else {
                 NSString *mediaType = [self.options objectForKey:@"mediaType"];
                 
                 if ([mediaType isEqualToString:@"any"]) {
-                    imagePickerController.mediaType = QBImagePickerMediaTypeAny;
+                    imagePickerController.mediaType = RNImagePickerMediaTypeAny;
                 } else if ([mediaType isEqualToString:@"photo"]) {
-                    imagePickerController.mediaType = QBImagePickerMediaTypeImage;
+                    imagePickerController.mediaType = RNImagePickerMediaTypeImage;
                 } else {
-                    imagePickerController.mediaType = QBImagePickerMediaTypeVideo;
+                    imagePickerController.mediaType = RNImagePickerMediaTypeVideo;
                 }
                 
             }
@@ -912,7 +912,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
                             }
                         }
                         NSFileManager *fileManager = [NSFileManager defaultManager];
-                        NSString *tempVideoThumbnailPath =[RNTImagePicker getTempFilePath:phAsset.localIdentifier prefix:@"thumbnail" extension:@"jpeg"];
+                        NSString *tempVideoThumbnailPath =[RNCamerarollPicker getTempFilePath:phAsset.localIdentifier prefix:@"thumbnail" extension:@"jpeg"];
                         [fileManager createFileAtPath:tempVideoThumbnailPath contents:imageData attributes:nil];
                         NSURL *tempVideoThumbnailURL = [NSURL fileURLWithPath:tempVideoThumbnailPath];
                         tempVideoThumbnailPath=[tempVideoThumbnailURL absoluteString];
@@ -955,12 +955,12 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
                         if(isAvailable&&videoAssetUrl!=nil)
                         {
                             NSString *assetContentUrl=[videoAssetUrl absoluteString];
-                            completion([RNTImagePicker createVideoResponse:assetContentUrl withThumbnailURL:tempVideoThumbnailPath withId:phAsset.localIdentifier withWidth:[NSNumber numberWithFloat:videoWidth] withHeight:[NSNumber numberWithFloat:videoHeight] withRatio:[NSNumber numberWithFloat:videoRatio]
+                            completion([RNCamerarollPicker createVideoResponse:assetContentUrl withThumbnailURL:tempVideoThumbnailPath withId:phAsset.localIdentifier withWidth:[NSNumber numberWithFloat:videoWidth] withHeight:[NSNumber numberWithFloat:videoHeight] withRatio:[NSNumber numberWithFloat:videoRatio]
                                                               withDuration:[NSNumber numberWithFloat:videoDuration]
                                                           withCreationDate:phAsset.creationDate withModificationDate:phAsset.modificationDate],index);
                         }
                         else{
-                            NSString *tempVideoFilePath =[RNTImagePicker getTempFilePath:phAsset.localIdentifier prefix:@"video" extension:@"mp4"];
+                            NSString *tempVideoFilePath =[RNCamerarollPicker getTempFilePath:phAsset.localIdentifier prefix:@"video" extension:@"mp4"];
                             NSString *presetKey = [self.options valueForKey:@"compressVideoPreset"];
                             if (presetKey == nil) {
                                 presetKey = @"Passthrough";
@@ -1004,7 +1004,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
                                 {
                                     case AVAssetExportSessionStatusCompleted:
                                     {
-                                        completion([RNTImagePicker createVideoResponse:[outputURL absoluteString] withThumbnailURL:tempVideoThumbnailPath withId:phAsset.localIdentifier withWidth:[NSNumber numberWithFloat:videoWidth] withHeight:[NSNumber numberWithFloat:videoHeight] withRatio:[NSNumber numberWithFloat:videoRatio]
+                                        completion([RNCamerarollPicker createVideoResponse:[outputURL absoluteString] withThumbnailURL:tempVideoThumbnailPath withId:phAsset.localIdentifier withWidth:[NSNumber numberWithFloat:videoWidth] withHeight:[NSNumber numberWithFloat:videoHeight] withRatio:[NSNumber numberWithFloat:videoRatio]
                                                                           withDuration:[NSNumber numberWithFloat:videoDuration]
                                                                       withCreationDate:phAsset.creationDate withModificationDate:phAsset.modificationDate],index);
                                     }
@@ -1052,7 +1052,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
                     return;
                 }
                 NSFileManager *fileManager = [NSFileManager defaultManager];
-                NSString *imageFilePath =[RNTImagePicker getTempFilePath:asset.localIdentifier prefix:@"thumbnail" extension:@"jpeg"];
+                NSString *imageFilePath =[RNCamerarollPicker getTempFilePath:asset.localIdentifier prefix:@"thumbnail" extension:@"jpeg"];
                 NSDictionary* exif = nil;
                 if([[self.options objectForKey:@"includeExif"] boolValue]) {
                     exif = [[CIImage imageWithData:imageData] properties];
@@ -1072,7 +1072,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
                     imageResult = [self.compression compressImage:[imgT fixOrientation] withOptions:self.options];
                     [fileManager createFileAtPath:imageFilePath contents:imageResult.data attributes:nil];
                 }
-                completion([RNTImagePicker createImageResponse:asset.localIdentifier withUrl:imageFilePath withWidth:imageResult.width withHeight:imageResult.height withExif:exif withMime:imageResult.mime
+                completion([RNCamerarollPicker createImageResponse:asset.localIdentifier withUrl:imageFilePath withWidth:imageResult.width withHeight:imageResult.height withExif:exif withMime:imageResult.mime
                                                       withRect:CGRectNull
                                               withCreationDate:asset.creationDate withModificationDate:asset.modificationDate],index);
             });
@@ -1126,7 +1126,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
         @"ratio": ratio,
         @"mimeType": mime?mime:[NSNull null],
         @"exif": (exif) ? exif : [NSNull null],
-        @"cropRect": CGRectIsNull(cropRect) ? [NSNull null] : [RNTImagePicker cgRectToDictionary:cropRect],
+        @"cropRect": CGRectIsNull(cropRect) ? [NSNull null] : [RNCamerarollPicker cgRectToDictionary:cropRect],
         @"creationDate": [NSNumber numberWithFloat: creationDateInterval],
         @"modificationDate": [NSNumber numberWithFloat: modificationDateInterval],
     };
@@ -1181,7 +1181,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
 }
 
 - (void)qb_imagePickerController:
-(QBImagePickerController *)imagePickerController
+(RNImagePickerController *)imagePickerController
           didFinishPickingAssets:(NSArray *)selectedAssets {
     NSArray *assets = [selectedAssets filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id object, NSDictionary *bindings) {
         return (object!=nil&& [object isKindOfClass:[PHAsset class]]);
@@ -1394,7 +1394,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     }
 }
 
-- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
+- (void)qb_imagePickerControllerDidCancel:(RNImagePickerController *)imagePickerController {
     [[NSNotificationCenter defaultCenter] postNotificationName:RNTImagePickerWillHide
                                                         object:@{}];
     [imagePickerController dismissViewControllerAnimated:YES completion:[self waitAnimationEnd:^{
@@ -1428,7 +1428,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
         [self startCropping:[image fixOrientation]];
     } else {
         ImageResult *imageResult = [self.compression compressImage:[image fixOrientation]  withOptions:self.options];
-        NSString *filePath = [RNTImagePicker persistFile:imageResult.data withId:localIdentifier withPrefix:@"image" withExtension:@"jpeg"];
+        NSString *filePath = [RNCamerarollPicker persistFile:imageResult.data withId:localIdentifier withPrefix:@"image" withExtension:@"jpeg"];
         if (filePath == nil) {
             [[NSNotificationCenter defaultCenter] postNotificationName:RNTImagePickerWillHide
                                                                 object:@{}];
@@ -1441,7 +1441,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
         // Wait for viewController to dismiss before resolving, or we lose the ability to display
         // Alert.alert in the .then() handler.
         NSMutableArray *selections = [[NSMutableArray alloc] init];
-        [selections addObject:[RNTImagePicker createImageResponse:localIdentifier withUrl:filePath
+        [selections addObject:[RNCamerarollPicker createImageResponse:localIdentifier withUrl:filePath
                                                         withWidth:imageResult.width
                                                        withHeight:imageResult.height
                                                          withExif:exif
@@ -1554,7 +1554,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     
     ImageResult *imageResult = [self.compression compressImage:croppedImage withOptions:self.options];
     
-    NSString *filePath = [RNTImagePicker persistFile:imageResult.data withId:nil withPrefix:@"crop" withExtension:@"png"];
+    NSString *filePath = [RNCamerarollPicker persistFile:imageResult.data withId:nil withPrefix:@"crop" withExtension:@"png"];
     if (filePath == nil) {
         [self dismissCropper:controller selectionDone:YES completion:[self waitAnimationEnd:^{
             self.reject(ERROR_CANNOT_SAVE_IMAGE_KEY, ERROR_CANNOT_SAVE_IMAGE_MSG, nil);
@@ -1569,7 +1569,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     
     [self dismissCropper:controller selectionDone:YES completion:[self waitAnimationEnd:^{
         NSMutableArray *selections = [[NSMutableArray alloc] init];
-        [selections addObject:[RNTImagePicker createImageResponse:self.croppingFile[@"localIdentifier"] withUrl:filePath
+        [selections addObject:[RNCamerarollPicker createImageResponse:self.croppingFile[@"localIdentifier"] withUrl:filePath
                                                         withWidth:imageResult.width
                                                        withHeight:imageResult.height
                                                          withExif: exif
@@ -1601,7 +1601,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     {
         extension=@"jpeg";
     }
-    NSString *filePath = [RNTImagePicker getTempFilePath:mediaId prefix:prefix extension:extension];
+    NSString *filePath = [RNCamerarollPicker getTempFilePath:mediaId prefix:prefix extension:extension];
     BOOL status = [data writeToFile:filePath atomically:YES];
     if (!status) {
         return nil;
@@ -1632,7 +1632,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
 
 + (NSString*) getTempFilePath:(NSString*)localId prefix:(NSString*) prefix extension:(NSString*) extension
 {
-    localId=[RNTImagePicker md5:localId];
+    localId=[RNCamerarollPicker md5:localId];
     NSString *tempFilePath = [NSTemporaryDirectory() stringByAppendingPathComponent:prefix?[NSString stringWithFormat:@"%@-",prefix]:@""];
     tempFilePath=[tempFilePath stringByAppendingString:localId];
     if(extension!=nil)
