@@ -2,8 +2,8 @@ import React from 'react';
 
 import {NativeEventEmitter, NativeModules} from 'react-native';
 
-const RNTImagePicker = NativeModules.RNTImagePicker;
-const RNTImagePickerEventEmitter = new NativeEventEmitter(RNTImagePicker);
+const RNGalleryPicker = NativeModules.RNGalleryPicker;
+const RNTImagePickerEventEmitter = new NativeEventEmitter(RNGalleryPicker);
 
 let callbackMap = {};
 
@@ -22,6 +22,7 @@ export function addExportVideoProgressListener(id, callback) {
         }, null);
     }
 }
+
 export function addCameraRollChangeListener(callback) {
     if (RNTImagePickerEventEmitter) {
         return RNTImagePickerEventEmitter.addListener('onCameraRollChange', callback, null);
@@ -29,4 +30,4 @@ export function addCameraRollChangeListener(callback) {
     return null;
 }
 
-export default RNTImagePicker;
+export default RNGalleryPicker;
