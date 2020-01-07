@@ -1,6 +1,6 @@
 {
   "name": "react-native-gallery-picker",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Support select image, video from gallery with iCloud",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "picker",
     "cloud",
     "crop",
+    "gallery",
     "cameraroll"
   ],
   "license": "MIT",

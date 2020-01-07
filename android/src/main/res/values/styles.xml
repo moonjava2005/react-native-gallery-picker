@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="ImagePickerTheme" parent="ef_BaseTheme">
+        <item name="colorPrimary">#54d3a2</item>
+        <item name="colorPrimaryDark">#53b08e</item>
+        <item name="colorAccent">#A533B0</item>
+    </style>
+</resources>
