@@ -1,4 +1,4 @@
-package info.moonjava;
+package info.moonjava.gallery.picker;
 
 import android.Manifest;
 import android.app.Activity;
@@ -47,6 +47,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
+
+import info.moonjava.R;
 
 class RNGalleryPickerModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 

@@ -1,4 +1,4 @@
-package info.moonjava;
+package info.moonjava.gallery.picker;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

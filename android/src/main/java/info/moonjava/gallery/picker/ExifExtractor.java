@@ -1,4 +1,4 @@
-package info.moonjava;
+package info.moonjava.gallery.picker;
 
 import android.media.ExifInterface;
 import android.os.Build;

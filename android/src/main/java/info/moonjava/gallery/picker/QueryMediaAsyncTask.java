@@ -1,4 +1,4 @@
-package info.moonjava;
+package info.moonjava.gallery.picker;
 
 import android.database.Cursor;
 import android.database.MergeCursor;

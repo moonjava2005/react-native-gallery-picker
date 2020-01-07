@@ -1,5 +1,5 @@
 
-package info.moonjava;
+package info.moonjava.gallery.picker;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
