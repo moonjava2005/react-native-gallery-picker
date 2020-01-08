@@ -80,9 +80,9 @@
     {
         count+=[self.selectedAssets count];
     }
-    if(self.currentSelections!=nil)
+    if(_currentSelections!=nil)
     {
-        count+=[self.currentSelections count];
+        count+=[_currentSelections count];
     }
     return  count;
 }
@@ -94,11 +94,11 @@
         {
             return  YES;
         }
-        if(self.currentSelections!=nil)
+        if(_currentSelections!=nil)
         {
-            for (NSDictionary *photo in self.currentSelections) {
-                NSString *photoId=[photo objectForKey:@"id"];
-                if(photoId!=nil&&asset.localIdentifier!=nil&&[photoId isEqualToString:asset.localIdentifier])
+            for (NSDictionary *photo in _currentSelections) {
+                NSString *_photoSku=[photo objectForKey:@"sku"];
+                if(_photoSku!=nil&&asset.localIdentifier!=nil&&[_photoSku isEqualToString:asset.localIdentifier])
                 {
                     return YES;
                 }
@@ -111,13 +111,13 @@
 - (void) removeSelectionAtIndex:(NSUInteger)index
 {
     NSUInteger currentSelectionCount=0;
-    if(self.currentSelections!=nil)
+    if(_currentSelections!=nil)
     {
-        currentSelectionCount=[self.currentSelections count];
+        currentSelectionCount=[_currentSelections count];
     }
     if(index<currentSelectionCount)
     {
-        [self.currentSelections removeObjectAtIndex:index];
+        [_currentSelections removeObjectAtIndex:index];
         return;
     }
     if(self.selectedAssets!=nil)
@@ -133,13 +133,13 @@
 - (NSObject*) getSelectionAtIndex:(NSUInteger)index
 {
     NSUInteger currentSelectionCount=0;
-    if(self.currentSelections!=nil)
+    if(_currentSelections!=nil)
     {
-        currentSelectionCount=[self.currentSelections count];
+        currentSelectionCount=[_currentSelections count];
     }
     if(index<currentSelectionCount)
     {
-        return [self.currentSelections objectAtIndex:index];
+        return [_currentSelections objectAtIndex:index];
     }
     if(self.selectedAssets!=nil)
     {
@@ -158,14 +158,14 @@
         [self.selectedAssets removeObject:asset];
         return;
     }
-    else if(self.currentSelections!=nil)
+    else if(_currentSelections!=nil)
     {
-        for (int i=0; i<[self.currentSelections count]; i++) {
-            NSDictionary *photo=[self.currentSelections objectAtIndex:i];
-            NSString *photoId=[photo objectForKey:@"id"];
-            if(photoId!=nil&&asset.localIdentifier!=nil&&[photoId isEqualToString:asset.localIdentifier])
+        for (int i=0; i<[_currentSelections count]; i++) {
+            NSDictionary *photo=[_currentSelections objectAtIndex:i];
+            NSString *_photoSku=[photo objectForKey:@"sku"];
+            if(_photoSku!=nil&&asset.localIdentifier!=nil&&[_photoSku isEqualToString:asset.localIdentifier])
             {
-                [self.currentSelections removeObjectAtIndex:i];
+                [_currentSelections removeObjectAtIndex:i];
                 return;
             }
         }
@@ -181,17 +181,17 @@
 }
 - (NSArray*)getSelectedAssets{
     NSUInteger capacity=0;
-    if(self.currentSelections!=nil)
+    if(_currentSelections!=nil)
     {
-        capacity+=[self.currentSelections count];
+        capacity+=[_currentSelections count];
     }if(self.selectedAssets!=nil)
     {
         capacity+=[self.selectedAssets count];
     }
     NSMutableArray *result=[NSMutableArray arrayWithCapacity:capacity];
-    if(self.currentSelections!=nil)
+    if(_currentSelections!=nil)
     {
-        [result addObjectsFromArray:self.currentSelections.array];
+        [result addObjectsFromArray:_currentSelections.array];
     }
     if(self.selectedAssets!=nil)
     {
@@ -200,3 +200,4 @@
     return result;
 }
 @end
+
