@@ -1121,6 +1121,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     }
     return @{
         @"type":@"image",
+        @"sku": (sku) ? sku : [NSNull null],
         @"id": (mediaId) ? mediaId : [NSNull null],
         @"url": (tempUrl && ![tempUrl isEqualToString:(@"")]) ? tempUrl : [NSNull null],
         @"width": width,
