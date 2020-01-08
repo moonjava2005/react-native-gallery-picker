@@ -391,10 +391,10 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
             for (int i = 0, n = currentSelections.size(); i < n; i++) {
                 try {
                     ReadableMap tempImageInfo = currentSelections.getMap(i);
-                    if (tempImageInfo != null) {
-                        String tempId = tempImageInfo.getString("id");
-                        if (tempId != null) {
-                            Image tempImage = cachedImages.get(tempId);
+                    if (tempImageInfo != null && tempImageInfo.hasKey("sku")) {
+                        String _tempSku = tempImageInfo.getString("sku");
+                        if (_tempSku != null) {
+                            Image tempImage = cachedImages.get(_tempSku);
                             if (tempImage != null) {
                                 selectedImages.add(tempImage);
                             }
@@ -590,7 +590,12 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
                             mediaMap = RNTImagePickerUtils.resolveImage(imageId, tempPath);
                         }
                         if (mediaMap != null) {
-                            cachedImages.put(imageId, tempImage);
+                            if (mediaMap.hasKey("sku")) {
+                                String _tempSku = mediaMap.getString("sku");
+                                if (_tempSku != null) {
+                                    cachedImages.put(_tempSku, tempImage);
+                                }
+                            }
                             resultArray.pushMap(mediaMap);
                         } else {
                             errorImages.add(tempImage);
@@ -625,7 +630,12 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
                         mediaMap = RNTImagePickerUtils.resolveImage(image.getId() + "", tempPath);
                     }
                     if (mediaMap != null) {
-                        cachedImages.put(image.getId() + "", image);
+                        if (mediaMap.hasKey("sku")) {
+                            String _tempSku = mediaMap.getString("sku");
+                            if (_tempSku != null) {
+                                cachedImages.put(_tempSku, image);
+                            }
+                        }
                         resultArray.pushMap(mediaMap);
                     } else {
                         errorImages.add(image);

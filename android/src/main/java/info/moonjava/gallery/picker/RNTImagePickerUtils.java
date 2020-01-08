@@ -96,6 +96,7 @@ public class RNTImagePickerUtils {
                 video.putString("type", "video");
                 if (mediaId != null) {
                     video.putString("id", mediaId);
+                    video.putString("sku", mediaId);
                 }
                 video.putString("url", "file://" + inputPath);
                 video.putString("coverUrl", "file://" + inputPath);
@@ -144,6 +145,7 @@ public class RNTImagePickerUtils {
                 }
                 image.putString("type", "image");
                 image.putString("id", imageId);
+                image.putString("sku", imageId);
                 image.putString("url", "file://" + inputPath);
                 image.putInt("width", (int) width);
                 image.putInt("height", (int) height);
