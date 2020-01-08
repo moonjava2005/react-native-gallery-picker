@@ -1105,12 +1105,14 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     }
     CGFloat modificationDateInterval=0;
     CGFloat creationDateInterval=0;
+    NSString *sku=nil;
     if(modificationDate!=nil)
     {
         modificationDateInterval=[modificationDate timeIntervalSince1970]*1000;
     }
     if(mediaId!=nil)
     {
+        sku=[mediaId copy];
         mediaId=[NSString stringWithFormat:@"%@-%.f",mediaId,modificationDateInterval];
     }
     if(creationDate!=nil)
@@ -1135,12 +1137,14 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
 + (NSDictionary*) createVideoResponse:(NSString*)filePath withThumbnailURL:(NSString*) thumbnailURL withId:(NSString*)mediaId withWidth:(NSNumber*)width withHeight:(NSNumber*)height withRatio:(NSNumber*) ratio withDuration:(NSNumber*)duration withCreationDate:(NSDate*)creationDate withModificationDate:(NSDate*)modificationDate {
     CGFloat modificationDateInterval=0;
     CGFloat creationDateInterval=0;
+    NSString *sku=nil;
     if(modificationDate!=nil)
     {
         modificationDateInterval=[modificationDate timeIntervalSince1970]*1000;
     }
     if(mediaId!=nil)
     {
+        sku=[mediaId copy];
         mediaId=[NSString stringWithFormat:@"%@-%.f",mediaId,modificationDateInterval];
     }
     if(creationDate!=nil)
@@ -1149,6 +1153,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
     }
     return @{
         @"type":@"video",
+        @"sku": (sku) ? sku : [NSNull null],
         @"id": (mediaId) ? mediaId : [NSNull null],
         @"url": (filePath && ![filePath isEqualToString:(@"")]) ? filePath : [NSNull null],
         @"coverUrl": (thumbnailURL) ? thumbnailURL : [NSNull null],
