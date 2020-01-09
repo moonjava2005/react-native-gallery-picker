@@ -1,6 +1,6 @@
 {
   "name": "react-native-gallery-picker",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Support select image, video from gallery with iCloud",
   "main": "index.js",
   "scripts": {
