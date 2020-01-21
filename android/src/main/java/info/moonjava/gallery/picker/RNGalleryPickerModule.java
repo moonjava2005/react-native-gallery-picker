@@ -3,6 +3,7 @@ package info.moonjava.gallery.picker;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -15,6 +16,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Patterns;
+import android.util.TypedValue;
 
 import androidx.core.app.ActivityCompat;
 import androidx.loader.content.CursorLoader;
@@ -63,6 +65,8 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
 
     private String mediaType = "any";
     private String albumTitle = "Albums";
+    private String imageTitle = "Tap to select";
+    private String doneText = "Done";
     private boolean multiple = false;
     private boolean cropping = false;
     private boolean cropperCircleOverlay = false;
@@ -161,6 +165,8 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
         disableCropperColorSetters = options.hasKey("disableCropperColorSetters") && options.getBoolean("disableCropperColorSetters");
         maxFiles = options.hasKey("maxFiles") ? options.getInt("maxFiles") : 10;
         albumTitle = options.hasKey("albumTitle") ? options.getString("albumTitle") : albumTitle;
+        imageTitle = options.hasKey("imageTitle") ? options.getString("imageTitle") : imageTitle;
+        doneText = options.hasKey("doneText") ? options.getString("doneText") : doneText;
         currentSelections = options.hasKey("currentSelections") ? options.getArray("currentSelections") : null;
     }
 
@@ -405,7 +411,16 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
                 }
             }
         }
-        ImagePicker imagePicker = ImagePicker.create(activity).limit(maxFiles).theme(R.style.ImagePickerTheme).toolbarFolderTitle(albumTitle);
+        int themeResId = R.style.ImagePickerTheme;
+        try {
+            PackageManager packageManager = activity.getPackageManager();
+            //ActivityInfo activityInfo = packageManager.getActivityInfo(getCallingActivity(), PackageManager.GET_META_DATA);
+            ActivityInfo activityInfo = packageManager.getActivityInfo(activity.getComponentName(), PackageManager.GET_META_DATA);
+            themeResId = activityInfo.theme;
+        } catch (Throwable e) {
+
+        }
+        ImagePicker imagePicker = ImagePicker.create(activity).limit(maxFiles).theme(themeResId).toolbarImageTitle(imageTitle).toolbarFolderTitle(albumTitle).toolbarDoneButtonText(doneText);
         if (imagePicker != null) {
             if (errorImages.size() > 0) {
                 imagePicker.exclude(errorImages);
@@ -449,22 +464,36 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
         return options;
     }
 
-    private void configureCropperColors(UCrop.Options options) {
-        int activeWidgetColor = Color.parseColor(cropperActiveWidgetColor);
+    private void configureCropperColors(UCrop.Options options, Activity activity) {
+        int _accentColor = Color.parseColor(cropperActiveWidgetColor);
         int toolbarColor = Color.parseColor(cropperToolbarColor);
         int statusBarColor = Color.parseColor(cropperStatusBarColor);
-        options.setToolbarColor(toolbarColor);
-        options.setStatusBarColor(statusBarColor);
-        if (activeWidgetColor == Color.parseColor(DEFAULT_TINT)) {
-            /*
-            Default tint is grey => use a more flashy color that stands out more as the call to action
-            Here we use 'Light Blue 500' from https://material.google.com/style/color.html#color-color-palette
-            */
-            options.setActiveWidgetColor(Color.parseColor(DEFAULT_WIDGET_COLOR));
-        } else {
-            //If they pass a custom tint color in, we use this for everything
-            options.setActiveWidgetColor(activeWidgetColor);
+        try {
+            TypedValue primaryValue = new TypedValue();
+            activity.getTheme().resolveAttribute(R.attr.colorPrimary, primaryValue, true);
+            toolbarColor = primaryValue.data;
+        } catch (Throwable e) {
+
         }
+        try {
+            TypedValue primaryDarkValue = new TypedValue();
+            activity.getTheme().resolveAttribute(R.attr.colorPrimaryDark, primaryDarkValue, true);
+            statusBarColor = primaryDarkValue.data;
+        } catch (Throwable e) {
+
+        }
+        try {
+            TypedValue accentValue = new TypedValue();
+            activity.getTheme().resolveAttribute(R.attr.colorAccent, accentValue, true);
+            _accentColor = accentValue.data;
+        } catch (Throwable e) {
+
+        }
+        options.setToolbarColor(toolbarColor);
+        options.setToolbarWidgetColor(Color.WHITE);
+        options.setStatusBarColor(statusBarColor);
+        options.setActiveWidgetColor(_accentColor);
+        options.setActiveControlsWidgetColor(_accentColor);
     }
 
     private void startCropping(Activity activity, Uri uri) {
@@ -487,7 +516,7 @@ class RNGalleryPickerModule extends ReactContextBaseJavaModule implements Activi
             );
         }
         if (!disableCropperColorSetters) {
-            configureCropperColors(options);
+            configureCropperColors(options, activity);
         }
         String path = uri.getPath();
         File tempOutputFile = RealPathUtil.createTempFile(path, "crop", "jpeg", null, this.reactContext);
