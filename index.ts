@@ -52,4 +52,27 @@ export function getRecentMedia(option?: { size?: number }): Promise<{
     return RNGalleryPicker.getMedias(option)
 }
 
-export default RNGalleryPicker
+export function openPicker(options?: {
+    currentSelections?: { sku: string }[]
+    multiple?: boolean
+    minFiles?: number
+    maxFiles?: number
+    showsSelectedCount?: boolean
+    smartAlbums?: boolean
+    cropping?: boolean
+    mediaType: 'any' | 'photo' | 'video'
+}): Promise<any> {
+    return RNGalleryPicker.openPicker(options)
+}
+
+export function openCropper(options?: {
+    path: string
+}): Promise<any> {
+    return RNGalleryPicker.openCropper(options)
+}
+
+export function openCamera(options?: {
+    useFrontCamera?: boolean
+}): Promise<any> {
+    return RNGalleryPicker.openCamera(options)
+}

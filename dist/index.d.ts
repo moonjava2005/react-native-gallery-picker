@@ -1,4 +1,3 @@
-declare const RNGalleryPicker: any;
 export declare function addExportVideoProgressListener(id: string, callback: (progress: number) => void): void;
 export declare function addCameraRollChangeListener(callback: () => void): any;
 export declare function getRecentMedia(option?: {
@@ -22,4 +21,21 @@ export declare function getRecentMedia(option?: {
     creationDate: number;
     modificationDate: number;
 }[]>;
-export default RNGalleryPicker;
+export declare function openPicker(options?: {
+    currentSelections?: {
+        sku: string;
+    }[];
+    multiple?: boolean;
+    minFiles?: number;
+    maxFiles?: number;
+    showsSelectedCount?: boolean;
+    smartAlbums?: boolean;
+    cropping?: boolean;
+    mediaType: 'any' | 'photo' | 'video';
+}): Promise<any>;
+export declare function openCropper(options?: {
+    path: string;
+}): Promise<any>;
+export declare function openCamera(options?: {
+    useFrontCamera?: boolean;
+}): Promise<any>;
