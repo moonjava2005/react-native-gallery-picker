@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "sourceMap": false,
+    "jsx": "react",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "es5",
+    "baseUrl": "src",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

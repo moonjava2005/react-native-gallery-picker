@@ -1,10 +1,24 @@
 {
   "name": "react-native-gallery-picker",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "Support select image, video from gallery with iCloud",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist-compile": "BABEL_ENV=production babel . --ignore node_modules,dist --out-dir dist",
+    "test": "yarn lint && jest",
+    "lint": "eslint --ext '.js,.ts,.tsx' .",
+    "typescript": "tsc",
+    "fix": "eslint --fix --ext '.js,.ts,.tsx' .",
+    "build": "yarn typescript",
+    "contrib:add": "all-contributors add",
+    "contrib:generate": "all-contributors generate",
+    "contrib:check": "all-contributors check",
+    "clear_jest": "jest --clearCache",
+    "clean": "rm -rf lib",
     "prepublish": "rm -rf android/build"
   },
   "author": {
@@ -23,8 +37,35 @@
     "cameraroll"
   ],
   "license": "MIT",
-  "peerDependencies": {
-    "react-native": ">=0.50.0"
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "prettier": "^2.0.5",
+    "typescript": "4.0.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "modulePaths": [
+      "./"
+    ]
   },
   "homepage": "https://github.com/moonjava2005/react-native-gallery-picker",
   "readme": "https://github.com/moonjava2005/react-native-gallery-picker#readme",
