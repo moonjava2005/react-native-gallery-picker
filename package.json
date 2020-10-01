@@ -1,6 +1,6 @@
 {
   "name": "react-native-gallery-picker",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Support select image, video from gallery with iCloud",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,7 @@
     "/dist",
     "/ios",
     "/android",
-    "/RNFirebaseAuthUi.podspec"
+    "/RNGalleryPicker.podspec"
   ],
   "scripts": {
     "dist-compile": "BABEL_ENV=production babel . --ignore node_modules,dist --out-dir dist",
