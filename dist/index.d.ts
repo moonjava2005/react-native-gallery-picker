@@ -1,16 +1,5 @@
-export declare function addExportVideoProgressListener(id: string, callback: (progress: number) => void): void;
-export declare function addCameraRollChangeListener(callback: () => void): any;
-export declare function getRecentMedia(option?: {
-    size?: number;
-}): Promise<{
-    type: 'image' | 'video';
-    id: string | null;
-    sku?: string | null;
-    url: string | null;
-    width: number;
-    height: number;
-    ratio: number;
-    mimeType?: string | null;
+declare type MediaResultType = {
+    creationDate: number;
     exif?: any | null;
     cropRect?: {
         x: number;
@@ -18,9 +7,21 @@ export declare function getRecentMedia(option?: {
         width: number;
         height: number;
     } | null;
-    creationDate: number;
+    height: number;
+    id: string;
+    mimeType: string;
     modificationDate: number;
-}[]>;
+    ratio: number;
+    sku: string;
+    type: 'image' | 'video';
+    url: string;
+    width: number;
+};
+export declare function addExportVideoProgressListener(id: string, callback: (progress: number) => void): void;
+export declare function addCameraRollChangeListener(callback: () => void): any;
+export declare function getRecentMedia(option?: {
+    size?: number;
+}): Promise<MediaResultType[]>;
 export declare function openPicker(options?: {
     currentSelections?: {
         sku: string;
@@ -32,10 +33,11 @@ export declare function openPicker(options?: {
     smartAlbums?: boolean;
     cropping?: boolean;
     mediaType: 'any' | 'photo' | 'video';
-}): Promise<any>;
+}): Promise<MediaResultType>;
 export declare function openCropper(options?: {
     path: string;
-}): Promise<any>;
+}): Promise<MediaResultType>;
 export declare function openCamera(options?: {
     useFrontCamera?: boolean;
-}): Promise<any>;
+}): Promise<MediaResultType>;
+export {};
