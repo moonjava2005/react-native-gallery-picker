@@ -33,7 +33,7 @@ export declare function openPicker(options?: {
     smartAlbums?: boolean;
     cropping?: boolean;
     mediaType: 'any' | 'photo' | 'video';
-}): Promise<MediaResultType>;
+}): Promise<MediaResultType[]>;
 export declare function openCropper(options?: {
     path: string;
 }): Promise<MediaResultType>;

@@ -63,7 +63,7 @@ export function openPicker(options?: {
     smartAlbums?: boolean
     cropping?: boolean
     mediaType: 'any' | 'photo' | 'video'
-}): Promise<MediaResultType> {
+}): Promise<MediaResultType[]> {
     return RNGalleryPicker.openPicker(options)
 }
 
