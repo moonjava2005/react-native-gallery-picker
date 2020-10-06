@@ -6,6 +6,26 @@ const RNTImagePickerEventEmitter: EventEmitter = new NativeEventEmitter(RNGaller
 
 const callbackMap: any = {}
 
+type MediaResultType = {
+    creationDate: number
+    exif?: any | null
+    cropRect?: {
+                   x: number
+                   y: number
+                   width: number
+                   height: number
+               } | null
+    height: number
+    id: string
+    mimeType: string
+    modificationDate: number
+    ratio: number
+    sku: string
+    type: 'image' | 'video'
+    url: string
+    width: number
+}
+
 export function addExportVideoProgressListener(id: string, callback: (progress: number) => void) {
     if (RNTImagePickerEventEmitter) {
         callbackMap[id] = RNTImagePickerEventEmitter.addListener('onExportVideoProgress',
@@ -30,25 +50,7 @@ export function addCameraRollChangeListener(callback: () => void) {
     return null
 }
 
-export function getRecentMedia(option?: { size?: number }): Promise<{
-    type: 'image' | 'video'
-    id: string | null
-    sku?: string | null
-    url: string | null
-    width: number
-    height: number
-    ratio: number
-    mimeType?: string | null
-    exif?: any | null
-    cropRect?: {
-                   x: number
-                   y: number
-                   width: number
-                   height: number
-               } | null
-    creationDate: number
-    modificationDate: number
-}[]> {
+export function getRecentMedia(option?: { size?: number }): Promise<MediaResultType[]> {
     return RNGalleryPicker.getMedias(option)
 }
 
@@ -61,18 +63,18 @@ export function openPicker(options?: {
     smartAlbums?: boolean
     cropping?: boolean
     mediaType: 'any' | 'photo' | 'video'
-}): Promise<any> {
+}): Promise<MediaResultType> {
     return RNGalleryPicker.openPicker(options)
 }
 
 export function openCropper(options?: {
     path: string
-}): Promise<any> {
+}): Promise<MediaResultType> {
     return RNGalleryPicker.openCropper(options)
 }
 
 export function openCamera(options?: {
     useFrontCamera?: boolean
-}): Promise<any> {
+}): Promise<MediaResultType> {
     return RNGalleryPicker.openCamera(options)
 }
