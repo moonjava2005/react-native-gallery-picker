@@ -78,3 +78,18 @@ export function openCamera(options?: {
 }): Promise<MediaResultType> {
     return RNGalleryPicker.openCamera(options)
 }
+
+export function exportVideo(option: {
+    url: string
+    id?: string | null
+    compressVideoPreset?: '640x480' | '960x540' | '1280x720'
+                          | '1920x1080' | 'LowQuality' | 'MediumQuality' | 'HighestQuality' | 'Passthrough'
+}): Promise<{
+    filePath: string
+    playableDuration: number
+    width: number
+    height: number
+    ratio: number
+}> {
+    return RNGalleryPicker.exportVideo(option)
+}

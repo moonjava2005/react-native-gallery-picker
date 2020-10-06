@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.openCamera = exports.openCropper = exports.openPicker = exports.getRecentMedia = exports.addCameraRollChangeListener = exports.addExportVideoProgressListener = void 0;
+exports.exportVideo = exports.openCamera = exports.openCropper = exports.openPicker = exports.getRecentMedia = exports.addCameraRollChangeListener = exports.addExportVideoProgressListener = void 0;
 // @ts-ignore
 var react_native_1 = require("react-native");
 var RNGalleryPicker = react_native_1.NativeModules.RNGalleryPicker;
@@ -46,3 +46,7 @@ function openCamera(options) {
     return RNGalleryPicker.openCamera(options);
 }
 exports.openCamera = openCamera;
+function exportVideo(option) {
+    return RNGalleryPicker.exportVideo(option);
+}
+exports.exportVideo = exportVideo;

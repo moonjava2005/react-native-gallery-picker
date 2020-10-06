@@ -40,4 +40,15 @@ export declare function openCropper(options?: {
 export declare function openCamera(options?: {
     useFrontCamera?: boolean;
 }): Promise<MediaResultType>;
+export declare function exportVideo(option: {
+    url: string;
+    id?: string | null;
+    compressVideoPreset?: '640x480' | '960x540' | '1280x720' | '1920x1080' | 'LowQuality' | 'MediumQuality' | 'HighestQuality' | 'Passthrough';
+}): Promise<{
+    filePath: string;
+    playableDuration: number;
+    width: number;
+    height: number;
+    ratio: number;
+}>;
 export {};
